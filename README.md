@@ -1,6 +1,6 @@
 # corba
 
-### Passo - 1
+### Passo 1 - server
 
 Criar um projeto java:
 
@@ -113,9 +113,40 @@ public class Main {
 
 Antes de rodar o main, adicionar este argumento na configuração da execução:
 
--ORBInitialHost localhost -ORBInitialPort 9999
-
+-ORBInitialPort 9999
 E depois executa : start tnameserv -ORBInitialPort 9999
 
+# Passo 2 - cliente
+Criar um projeto java:
 
+Criar uma class Main:
+
+Copiar do projeto server o pacote HelloApp
+
+Adicionar conteudo no main:
+```
+public class Main {
+	public static void main(String[] args) {
+		try {			
+			ORB orb  = ORB.init(args,null);
+			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
+			NamingContextExt ncref = NamingContextExtHelper.narrow(objRef);
+			Hello helloobj = (Hello) HelloHelper.narrow(ncref.resolve_str("ABC"));
+			
+			System.out.println("welcome server orb");
+			String r = helloobj.msg();
+			System.out.println("MSG:: "+r);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
+
+
+``` 
+
+-ORBInitialHost localhost -ORBInitialPort 9999
+
+Executar . . .
 
