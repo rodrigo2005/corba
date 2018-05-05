@@ -8,6 +8,11 @@ Criar uma class Main:
 
 Criar um arquivo HelloApp.idl
 
+
+|--nomeProjeto
+|	|-- Main.java
+|
+|-- HelloApp.idl
 ```
 module HelloApp{
 
