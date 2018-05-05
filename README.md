@@ -1,6 +1,6 @@
 # corba
 
-Passo - 1
+#Passo - 1
 
 Criar um projeto java:
 
@@ -8,11 +8,15 @@ Criar uma class Main:
 
 Criar um arquivo HelloApp.idl
 
-
+```
 |--nomeProjeto
 |	|-- Main.java
 |
 |-- HelloApp.idl
+```
+
+#Conteudo HelloApp.idl
+
 ```
 module HelloApp{
 
