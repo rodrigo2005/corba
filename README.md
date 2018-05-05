@@ -26,11 +26,7 @@ module HelloApp{
 };
 ```
 
+Após criar o arquivo acima executar o seguinte comando abaixo: 
+F:\caminho_projeto> idlj -fall HelloApp.idl
 
-Comando para criar estrutura do corba:   
-   
-   
-   
-   
-   
-F:\idlj -fall HelloApp.idl
+Este comando criar a estrutura baseando no HelloApp.idl
