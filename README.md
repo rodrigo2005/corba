@@ -111,3 +111,11 @@ public class Main {
 
 ``` 
 
+Antes de rodar o main, adicionar este argumento na configuração da execução:
+
+-ORBInitialHost localhost -ORBInitialPort 9999
+
+E depois executa : start tnameserv -ORBInitialPort 9999
+
+
+
