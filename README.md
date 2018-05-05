@@ -1,6 +1,6 @@
 # corba
 
-#Passo - 1
+# Passo - 1
 
 Criar um projeto java:
 
@@ -15,7 +15,7 @@ Criar um arquivo HelloApp.idl
 |-- HelloApp.idl
 ```
 
-#Conteudo HelloApp.idl
+# Conteudo HelloApp.idl
 
 ```
 module HelloApp{
