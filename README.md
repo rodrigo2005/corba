@@ -63,8 +63,51 @@ public class HelloServant extends HelloPOA {
 
 ``` 
 
+Após isso criamos 
 
 
 
+o conteudo do main :
 
+```
+public class Main {
+
+	public static void main(String[] args) {
+
+	try {
+		ORB orb = ORB.init(args,null);
+		POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
+		rootpoa.the_POAManager().activate();
+		
+		HelloServant helloobj = new HelloServant();
+		helloobj.setOrg(orb);
+		
+		org.omg.CORBA.Object ref = rootpoa.servant_to_reference(helloobj);
+		Hello href = HelloHelper.narrow(ref);
+		
+		org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
+		NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
+		
+		NameComponent path[] = ncRef.to_name("ABC");
+		ncRef.rebind(path, href);
+		
+		System.out.println("Hello Server ready and waiting");
+		
+		for (;;) {
+			orb.run();
+		}
+		
+		
+		} catch (InvalidName | AdapterInactive | org.omg.CosNaming.NamingContextPackage.InvalidName | ServantNotActive | WrongPolicy | NotFound | CannotProceed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	System.out.println("Hello Server exit");
+		
+	}
+
+}
+
+``` 
 
